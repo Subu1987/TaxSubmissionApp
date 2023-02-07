@@ -1,5 +1,6 @@
 <mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
-	controllerName="com.infocus.app.fi.zTaxApprove.controller.tax.TaxOnProperty" xmlns:html="http://www.w3.org/1999/xhtml">
+	controllerName="com.infocus.app.fi.zTaxApprove.controller.tax.TaxOnProperty" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
 	<Bar>
 		<contentLeft>
 			<Title text="Income from House Property" level="H2"/>
@@ -241,13 +242,16 @@
 							</f:fields>
 						</f:FormElement>
 					</f:formElements>
-					<!--							<f:formElements>
-								<f:FormElement label="PAN of Lender">
-									<f:fields>
-										<Input value=""/>
-									</f:fields>
-								</f:FormElement>
-							</f:formElements>-->
+				</f:FormContainer>
+				<f:FormContainer title="Documents View">
+					<f:formElements>
+						<f:FormElement label="">
+							<f:fields>
+								<Button icon="sap-icon://attachment-text-file" id="btnHousePropertyViewFile" type="Default" press="downloadSupportingDoc" tooltip="View Files"
+									customData:value="Income from House Property"></Button>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
 				</f:FormContainer>
 			</f:formContainers>
 		</f:Form>

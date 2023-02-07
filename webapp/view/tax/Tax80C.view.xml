@@ -1,5 +1,6 @@
 <mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout"
-	controllerName="com.infocus.app.fi.zTaxApprove.controller.tax.Tax80C" xmlns:html="http://www.w3.org/1999/xhtml">
+	controllerName="com.infocus.app.fi.zTaxApprove.controller.tax.Tax80C" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
 	<Bar>
 		<contentLeft>
 			<Title text="Section 80C - Total declared in ₹ {globalData>/oTotal80CAmountDeclared} | Max Limit is ₹ {employeeData>/0/limit}" level="H2"/>
@@ -32,7 +33,7 @@
 						<ObjectIdentifier title="{sec80c>Itext}"/>
 						<Text text="{sec80c>PcnAmount}"/>
 						<Text text="{sec80c>AcnAmount}"/>
-						<Button icon="sap-icon://attachment-text-file" press="downloadSupportingDoc" type="Accept"></Button>
+						<Button icon="sap-icon://attachment-text-file" press="downloadSupportingDoc" type="Accept" customData:value="{sec80c>Itext}"></Button>
 					</cells>
 				</ColumnListItem>
 			</items>

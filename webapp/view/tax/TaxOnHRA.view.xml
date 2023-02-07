@@ -1,5 +1,6 @@
 <mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout"
-	xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" controllerName="com.infocus.app.fi.zTaxApprove.controller.tax.TaxOnHRA">
+	xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" controllerName="com.infocus.app.fi.zTaxApprove.controller.tax.TaxOnHRA"
+	xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
 	<Bar>
 		<contentLeft>
 			<Title text="Housing(HRA/CLA/COA)" level="H2"/>
@@ -27,8 +28,8 @@
 						</f:FormElement>
 						<f:FormElement label="City Category">
 							<f:fields>
-								<Input id="cityInput" placeholder="Select City Type ..." value="{HRA>/0/cityCategory}" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="handleCityValueHelp"
-									class="sapUiSmallMarginBottom"/>
+								<Input id="cityInput" placeholder="Select City Type ..." value="{HRA>/0/cityCategory}" showValueHelp="true" valueHelpOnly="true"
+									valueHelpRequest="handleCityValueHelp" class="sapUiSmallMarginBottom"/>
 							</f:fields>
 						</f:FormElement>
 						<f:FormElement label="Rent Amount">
@@ -44,7 +45,7 @@
 						</f:FormElement>
 					</f:formElements>
 				</f:FormContainer>
-<!--				<f:FormContainer title="Helper and furniture details">
+				<!--				<f:FormContainer title="Helper and furniture details">
 					<f:formElements>
 						<f:FormElement label="Number of Helpers">
 							<f:fields>
@@ -137,7 +138,7 @@
 						</f:FormElement>
 					</f:formElements>
 				</f:FormContainer>
-<!--				<f:FormContainer title="Helper and furniture details">
+				<!--				<f:FormContainer title="Helper and furniture details">
 					<f:formElements>
 						<f:FormElement label="Number of Helpers">
 							<f:fields>
@@ -193,6 +194,16 @@
 						<f:FormElement label="Particulars">
 							<f:fields>
 								<Text text="{HRA>/0/particulars}"/>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+				<f:FormContainer title="Documents View">
+					<f:formElements>
+						<f:FormElement label="">
+							<f:fields>
+								<Button icon="sap-icon://attachment-text-file" id="btnHRAViewFile" type="Default" press="downloadSupportingDoc" tooltip="View Files"
+									customData:value="House Rent Allowance"></Button>
 							</f:fields>
 						</f:FormElement>
 					</f:formElements>

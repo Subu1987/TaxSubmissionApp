@@ -1,0 +1,28 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" xmlns:b="sap.suite.ui.commons"
+	xmlns:u="sap.ui.unified">
+	<Dialog class="sapUiPopupWithPadding" title="Import from Excel" resizable="false" draggable="false" showHeader="false"
+		horizontalScrolling="false" contentWidth="650px">
+		<content>
+    			<UploadCollection 
+    			id="UploadCollectionHRAView"
+    			uploadEnabled="false"
+    			items="{itemsData>/}">
+    				<items>
+    					<UploadCollectionItem 
+    					fileName="{itemsData>Filename}" 
+    					mimeType="{itemsData>mimeType}"
+    					url="{parts: ['itemsData>Pernr','itemsData>Zdesc','itemsData>Filename'], 
+									formatter: '.formatter.formatURL'}"
+    					enableEdit="false" 
+    					enableDelete="false" 
+    					visibleDelete="false" 
+    					visibleEdit="false"
+    					></UploadCollectionItem>
+    				</items>
+			    </UploadCollection>
+		</content>
+		<buttons>
+			<Button text="Cancel" type="Emphasized" id="btnCancelHRAView" press="onCancelPressView"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

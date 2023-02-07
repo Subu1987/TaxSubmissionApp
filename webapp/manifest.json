@@ -102,7 +102,35 @@
 			},
 			"AccType": {
 				"type": "sap.ui.model.json.JSONModel"
+			},
+			"FileUpload80cView": {
+				"type": "sap.ui.model.json.JSONModel"
+			},
+			"FileUpload80View": {
+				"type": "sap.ui.model.json.JSONModel"
+			},
+			"FileUploadHRAView": {
+				"type": "sap.ui.model.json.JSONModel"
+			},
+			"FileUploadPreviousEmpView": {
+				"type": "sap.ui.model.json.JSONModel"
+			},
+			"FileUploadHousePropertyView": {
+				"type": "sap.ui.model.json.JSONModel"
+			},
+			"FileUploadOtherSourceView": {
+				"type": "sap.ui.model.json.JSONModel"
+			},
+			"itemsData": {
+				"type": "sap.ui.model.json.JSONModel"
 			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
 		},
 		"routing": {
 			"config": {
@@ -119,24 +147,21 @@
 				},
 				"async": true
 			},
-			"routes": [
-				{
-					"pattern": "",
-					"name": "master",
-					"target": [
-						"object",
-						"master"
-					]
-				},
-				{
-					"pattern": "TaxHeaderSet/{objectId}",
-					"name": "object",
-					"target": [
-						"master",
-						"object"
-					]
-				}
-			],
+			"routes": [{
+				"pattern": "",
+				"name": "master",
+				"target": [
+					"object",
+					"master"
+				]
+			}, {
+				"pattern": "TaxHeaderSet/{objectId}",
+				"name": "object",
+				"target": [
+					"master",
+					"object"
+				]
+			}],
 			"targets": {
 				"master": {
 					"viewName": "Master",

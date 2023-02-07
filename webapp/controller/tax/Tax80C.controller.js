@@ -3,11 +3,13 @@ sap.ui.define([
 	"sap/ui/core/Fragment",
 	"sap/m/MessageBox",
 	"sap/m/MessageToast",
-	"sap/ui/model/Filter"
-], function(BaseController, Fragment, MessageBox, MessageToast, Filter) {
+	"sap/ui/model/Filter",
+	"com/infocus/app/fi/zTaxApprove/model/formatter"
+], function(BaseController, Fragment, MessageBox, MessageToast, Filter,formatter) {
 	"use strict";
 
 	return BaseController.extend("com.infocus.app.fi.zTaxApprove.controller.tax.Tax80C", {
+	    formatter: formatter,
 
 		onInit: function() {
 			//	var oRouter = this.getRouter();
@@ -23,11 +25,60 @@ sap.ui.define([
 			//this._onRead80CDataSet();
 
 		},
-		onAfterRenderer: function() {
+		downloadSupportingDoc: function(oEvent) {
+			var that = this;
+			var oButton = oEvent.getSource();
+			var buttonValue = oButton.data("value");
+			var oSec80cData = this.getView().getModel("sec80c").getData();
+			oSec80cData.buttonValue = buttonValue;
+			this.getView().getModel("sec80c").setData(oSec80cData);
+			/*var btn80c = this.getView().byId("btn80c");*/
+
+			// fragment open 
+			if (!this._oValueOnFileView) {
+				this._oValueOnFileView = sap.ui.xmlfragment("com.infocus.app.fi.zTaxApprove.view.tax.fragment.FileUpload80cView", this);
+				this._oValueOnFileView.setModel(that.getOwnerComponent().getModel("FileUpload80cView"));
+				this.getView().addDependent(this._oValueOnFileView);
+
+			}
+			this._oValueOnFileView.open();
+
+			// get the list of file from server 
+			var oModel = that.getOwnerComponent().getModel();
+			var oItemModel = that.getOwnerComponent().getModel("itemsData");
+			var oItemData = oItemModel.getData();
+			
+			var oJsonGlobalData = this.getOwnerComponent().getModel("globalData").getData();
+			var oPernerFilter = new sap.ui.model.Filter("Pernr", sap.ui.model.FilterOperator.EQ, oJsonGlobalData.selectedPernr);
+			var oDescFilter = new sap.ui.model.Filter("Zdesc", sap.ui.model.FilterOperator.EQ, oSec80cData.buttonValue);
+			/*var oFiscalYearFilter = new sap.ui.model.Filter("fiscal", sap.ui.model.FilterOperator.EQ, oJsonGlobalData.selectedYear);*/
+			sap.ui.core.BusyIndicator.show();
+			oModel.read("/ZfileSet", {
+
+				filters: [oPernerFilter, oDescFilter],
+				//In the case of success, the existing documents are in oData.results
+				success: function(response) {
+					var oData = response.results;
+
+					oItemModel.setData(oData);
+					console.log(oItemModel);
+					sap.ui.core.BusyIndicator.hide();
+
+				},
+				error: function(error) {
+					console.log(error);
+					sap.ui.core.BusyIndicator.hide();
+				}
+
+			});
 
 		},
-		downloadSupportingDoc:function(){
-			
+		onCancelPressView: function(oEvent) {
+			this._oValueOnFileView.close();
+
+		},
+		onAfterRenderer: function() {
+
 		},
 		_onRouteMatched: function(oEvent) {
 			var oArgs, oView;
