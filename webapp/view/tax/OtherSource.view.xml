@@ -230,7 +230,7 @@
 					<f:formElements>
 						<f:FormElement label="Documents View">
 							<f:fields>
-								<Button icon="sap-icon://attachment-text-file" id="btnOtherSourceViewFile" type="Default" press="downloadSupportingDoc" tooltip="View Files"
+								<Button icon="sap-icon://attachment-text-file" id="btnOtherSourceViewFile" enabled="{= ${OtherSources>/0/doc_flag} === 'X' ? true : false}" type="Default" press="downloadSupportingDoc" tooltip="View Files"
 									customData:value="Income From Other Sources"></Button>
 							</f:fields>
 						</f:FormElement>

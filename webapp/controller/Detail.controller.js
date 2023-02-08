@@ -181,6 +181,7 @@ sap.ui.define([
 						var data = response.results;
 						var oTaxHouseRentAllowanceModel = that.getOwnerComponent().getModel("HRA");
 						oTaxHouseRentAllowanceModel.setData(data);
+						
 					},
 					error: function(error) {}
 				});

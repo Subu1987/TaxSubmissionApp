@@ -247,7 +247,7 @@
 					<f:formElements>
 						<f:FormElement label="">
 							<f:fields>
-								<Button icon="sap-icon://attachment-text-file" id="btnHousePropertyViewFile" type="Default" press="downloadSupportingDoc" tooltip="View Files"
+								<Button icon="sap-icon://attachment-text-file" id="btnHousePropertyViewFile" enabled="{= ${HouseProperty>/0/doc_flag} === 'X' ? true : false}" type="Default" press="downloadSupportingDoc" tooltip="View Files"
 									customData:value="Income from House Property"></Button>
 							</f:fields>
 						</f:FormElement>

@@ -40,7 +40,7 @@
 									</layoutData>
 								</Input>
 								<Text text="{HRA>/0/currency}"/>
-								<CheckBox text="HRA to be Tax Exempt" selected="{HRA>/0/HRATaxExempt}" textDirection="LTR"/>
+								<CheckBox text="HRA to be Tax Exempt" selected="true" textDirection="LTR"/>
 							</f:fields>
 						</f:FormElement>
 					</f:formElements>
@@ -133,7 +133,7 @@
 									</layoutData>
 								</Text>
 								<Text text="{HRA>/0/currency}"/>
-								<CheckBox text="HRA to be Tax Exempt" id="HRAExempt" selected="{HRA>/0/HRATaxExempt}" textDirection="LTR" enabled="false"/>
+								<CheckBox text="HRA to be Tax Exempt" id="HRAExempt" selected="true" textDirection="LTR" enabled="false"/>
 							</f:fields>
 						</f:FormElement>
 					</f:formElements>
@@ -202,7 +202,7 @@
 					<f:formElements>
 						<f:FormElement label="">
 							<f:fields>
-								<Button icon="sap-icon://attachment-text-file" id="btnHRAViewFile" type="Default" press="downloadSupportingDoc" tooltip="View Files"
+								<Button icon="sap-icon://attachment-text-file" id="btnHRAViewFile" enabled="{= ${HRA>/0/doc_flag} === 'X' ? true : false}" type="Default" press="downloadSupportingDoc" tooltip="View Files"
 									customData:value="House Rent Allowance"></Button>
 							</f:fields>
 						</f:FormElement>
