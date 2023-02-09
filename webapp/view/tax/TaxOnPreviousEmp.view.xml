@@ -140,7 +140,7 @@
 					<f:formElements>
 						<f:FormElement label="Documents View">
 							<f:fields>
-								<Button icon="sap-icon://attachment-text-file" id="btnPreviousEmpViewFile" enabled="{= ${PreviousEmployement>/0/doc_flag} === 'X' ? true : false}" type="Default" press="downloadSupportingDoc" tooltip="View Files"
+								<Button icon="sap-icon://attachment-text-file" id="btnPreviousEmpViewFile" width="0px" enabled="{= ${PreviousEmployement>/0/doc_flag} === 'X' ? true : false}" type="Accept" press="downloadSupportingDoc" tooltip="View Files"
 									customData:value="Previous Employment Tax Details"></Button>
 							</f:fields>
 						</f:FormElement>

@@ -3,7 +3,7 @@
 	xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
 	<Bar>
 		<contentLeft>
-			<Title text="Section 80C - Total declared in ₹ {globalData>/oTotal80CAmountDeclared} | Max Limit is ₹ {employeeData>/0/limit}" level="H2"/>
+			<Title text="Section 80C - Total declared in ₹ {globalData>/oTotal80CAmountDeclared} | Max Limit is ₹ 150000.00" level="H2"/>
 		</contentLeft>
 		<!--<contentRight>
 			<Button id="edit" text="Edit" type="Emphasized" enabled="false" press="handleEditPress"/>
@@ -33,7 +33,7 @@
 						<ObjectIdentifier title="{sec80c>Itext}"/>
 						<Text text="{sec80c>PcnAmount}"/>
 						<Text text="{sec80c>AcnAmount}"/>
-						<Button icon="sap-icon://attachment-text-file" press="downloadSupportingDoc" type="Accept" customData:value="{sec80c>Itext}"></Button>
+						<Button icon="sap-icon://attachment-text-file" press="downloadSupportingDoc" enabled="{= ${sec80c>DocFlag} === 'X' ? true : false}" type="Accept" customData:value="{sec80c>Itext}"></Button>
 					</cells>
 				</ColumnListItem>
 			</items>

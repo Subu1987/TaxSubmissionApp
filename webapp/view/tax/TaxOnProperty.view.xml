@@ -242,8 +242,16 @@
 							</f:fields>
 						</f:FormElement>
 					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="Documents View">
+							<f:fields>
+								<Button icon="sap-icon://attachment-text-file" id="btnHousePropertyViewFile" width="0px" enabled="{= ${HouseProperty>/0/doc_flag} === 'X' ? true : false}" type="Accept" press="downloadSupportingDoc" tooltip="View Files"
+									customData:value="Income from House Property"></Button>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
 				</f:FormContainer>
-				<f:FormContainer title="Documents View">
+				<!--<f:FormContainer title="Documents View">
 					<f:formElements>
 						<f:FormElement label="">
 							<f:fields>
@@ -252,7 +260,7 @@
 							</f:fields>
 						</f:FormElement>
 					</f:formElements>
-				</f:FormContainer>
+				</f:FormContainer>-->
 			</f:formContainers>
 		</f:Form>
 	</l:VerticalLayout>
