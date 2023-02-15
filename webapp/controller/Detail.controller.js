@@ -38,7 +38,7 @@ sap.ui.define([
 			var oViewModel = new JSONModel({
 				busy: false,
 				delay: 0
-			});
+			}); 
 
 			this.getRouter().getRoute("object").attachPatternMatched(this._onObjectMatched, this);
 
@@ -501,6 +501,9 @@ sap.ui.define([
 							}, true);
 						} else {
 							that.getRouter().getTargets().display("detailNoObjectsAvailable");
+							/*that.getRouter().navTo("object", {
+								objectId: null
+							}, true);*/
 						}
 
 					},
@@ -548,11 +551,13 @@ sap.ui.define([
 							that.getRouter().getTargets().display("detailNoObjectsAvailable");
 						}*/
 
-						MessageToast.show("The response is saved");
+						/*MessageToast.show("The response is saved");*/
+						MessageBox.information("The response is saved");
 					},
 					error: function(error) {
-						//MessageBox.information("The response connot be saved");
-						MessageToast.show("The response connot be saved");
+						/*MessageToast.show("The response connot be saved");*/
+						MessageBox.error("The response connot be saved");
+						
 					}
 				});
 

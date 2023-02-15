@@ -99,7 +99,13 @@ sap.ui.define([
 		 */
 		onUpdateFinished: function(oEvent) {
 			// update the master list object counter after new data is loaded
-			this._updateListItemCount(oEvent.getParameter("total"));
+			var totalCount = oEvent.getParameter("total");
+			if(totalCount > 0){
+			    this._updateListItemCount(totalCount);
+			}else{
+			    this.getRouter().getTargets().display("detailNoObjectsAvailable");
+			}
+			/*this._updateListItemCount(oEvent.getParameter("total"));*/
 			// hide pull to refresh if necessary
 			this.byId("pullToRefresh").hide();
 		},
